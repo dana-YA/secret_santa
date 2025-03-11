@@ -77,6 +77,12 @@ The application consists of:
     ```bash
     http://localhost:5000/api
     
+
+7. To Run Tests
+    ```bash
+    python -m unittest discover -s tests
+
+
 ---
 
 ### **Pending Things to implement**
