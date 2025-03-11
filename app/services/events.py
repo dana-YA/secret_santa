@@ -36,10 +36,8 @@ class EventService:
 
         event_participants = ParticipantDAO.get_event_participants(event_id)
 
-        print(event_participants, "event_participants")
         event_pairings = EventPairingService.pair_participants(event_participants)
 
-        # print("event_pairings", event_pairings)
         if not event_pairings:
             raise BadRequest("Event pairing not possible")
 

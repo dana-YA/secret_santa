@@ -20,11 +20,21 @@ class TestEventPairingService(unittest.TestCase):
         result = EventPairingService.pair_participants(participants)
 
         # Assertions
-        self.assertEqual(len(result), 2)
-        self.assertEqual(result[0]["gifter_id"], 1)
-        self.assertEqual(result[0]["recipient_id"], 2)
-        self.assertEqual(result[1]["gifter_id"], 2)
-        self.assertEqual(result[1]["recipient_id"], 1)
+        self.assertEqual(len(result), 2)  # There should be 2 pairings
+
+        # Extract all gifter_ids and recipient_ids
+        gifter_ids = [pairing["gifter_id"] for pairing in result]
+        recipient_ids = [pairing["recipient_id"] for pairing in result]
+
+        # Ensure each participant is a gifter exactly once
+        self.assertEqual(sorted(gifter_ids), [1, 2])
+
+        # Ensure each participant is a recipient exactly once
+        self.assertEqual(sorted(recipient_ids), [1, 2])
+
+        # Ensure no participant is paired with themselves
+        for pairing in result:
+            self.assertNotEqual(pairing["gifter_id"], pairing["recipient_id"])
 
     def test_pair_participants_insufficient_participants(self):
         """
