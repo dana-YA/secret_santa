@@ -98,6 +98,7 @@ The application consists of:
     - Enhanced Matching Algorithm
     - Add more gifting preference: Prioritize gifting preferences.
     - Upload pariticpants via excel
+    - Review DB Structure and add proper indexing
     - Frontend Development (Build with React.js and Vue framework with core functionality (Register, Login/Logout, Add Event, Add Participants, generate matched)
     - Email Notifications: Integrate email service for event updates and pairing assignments.
 5. Add a monitoring Dashboard maybe via Grafana to monitor how well the app is doing (KPI Metrics) , and integrate it with AWS to monitor any server issues     
